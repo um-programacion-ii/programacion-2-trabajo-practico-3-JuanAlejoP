@@ -32,4 +32,4 @@ replay_pid*
 .settings/
 
 # Maven build directory
-/target/
+**/target/
