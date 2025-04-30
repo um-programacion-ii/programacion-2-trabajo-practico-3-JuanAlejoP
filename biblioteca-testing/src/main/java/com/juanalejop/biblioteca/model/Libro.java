@@ -3,9 +3,9 @@ package com.juanalejop.biblioteca.model;
 import com.juanalejop.biblioteca.util.Estado;
 
 public class Libro {
-    private String isbn;
-    private String titulo;
-    private String autor;
+    private final String isbn;
+    private final String titulo;
+    private final String autor;
     private Estado estado;
 
     public Libro(String isbn, String titulo, String autor) {
