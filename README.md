@@ -14,7 +14,26 @@
 - **Nombre:** Juan Alejo
 - **Apellido:** Patiño
 - **Legajo:** 61160
+---
+### 🤖 Uso de IA como Herramienta de Asistencia
 
+Durante el desarrollo de este proyecto he utilizado ChatGPT de OpenAI para **asistirme** en las siguientes tareas:
+
+- **Generación de esquemas de diseño**: para estructurar la arquitectura SOLID y definir responsabilidades de clases. Así como también para aprender cómo configurar el `pom.xml` (y corregir un error de dependencias que apareció durante el desarrollo); y la organización de paquetes por convención.
+- **Guía**: para implementar clases, métodos y tests manteniendo alineamiento con buenas prácticas de POO; en aquellos casos donde hubo dudas.
+- **Revisión de código**: para obtener sugerencias de mejora en mensajes de excepción, organización de imports y estructura de paquetes. También para obtener explicaciones sobre las diferencias de usos entre `@BeforeEach` y otras etiquetas de Mock; entre `List` y `Map`, etc.
+   > **Nota**: Como dato de color, también aprendí cómo están compuestos los ISBN y qué significa cada número.
+- **Elaboración de JavaDocs**: para comentar clases y métodos siguiendo convenciones de documentación. Así también como la elaboración del contenido de issues y pull requests usando las plantillas que configuré en mi repositorio.
+
+### Declaraciones de Transparencia
+
+- **Revisión y comprensión**: todo el código generado por IA ha sido revisado, comprendido y adaptado manualmente antes de incorporarlo al repositorio.
+- **Responsabilidad final**: soy plenamente responsable de la calidad, corrección y estilo del código entregado.
+- **Aprendizaje activo**: he utilizado las sugerencias de IA como punto de partida para mi aprendizaje, no como sustituto del razonamiento propio.
+
+Con esto, aseguro un uso ético y transparente de la Inteligencia Artificial, alineado con los principios de honestidad, aprendizaje y responsabilidad académica.
+
+---
 ## Importante
 - La rama `main` está protegida y no se pueden hacer commits directos sobre ella
 - Todo el trabajo debe realizarse en ramas feature siguiendo el patrón `feature/issue-numero-descripcion`
