@@ -8,10 +8,16 @@ import java.util.List;
 import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Pruebas unitarias para la clase Catalogo.
+ */
 public class CatalogoTest {
     private Catalogo catalogo;
     private Libro libro1, libro2, libro3;
 
+    /**
+     * Prepara un catálogo con tres libros: dos disponibles y uno prestado.
+     */
     @BeforeEach
     void setUp() {
         catalogo = new Catalogo();
@@ -24,6 +30,9 @@ public class CatalogoTest {
         catalogo.agregarLibro(libro3);
     }
 
+    /**
+     * Verifica búsqueda exitosa de un libro en estado DISPONIBLE.
+     */
     @Test
     void testBuscarPorIsbn_EncontradoDisponible() {
         Optional<Libro> libroDisponible = catalogo.buscarPorIsbn("978-3-16-148410-0");
@@ -33,6 +42,9 @@ public class CatalogoTest {
         assertEquals(Estado.DISPONIBLE, encontradoDisponible.getEstado(), "El libro debería tener estado DISPONIBLE");
     }
 
+    /**
+     * Verifica búsqueda exitosa de un libro en estado PRESTADO.
+     */
     @Test
     void testBuscarPorIsbn_EncontradoPrestado() {
         Optional<Libro> libroPrestado = catalogo.buscarPorIsbn("979-8888771389");
@@ -42,12 +54,18 @@ public class CatalogoTest {
         assertEquals(Estado.PRESTADO, encontradoPrestado.getEstado(), "El libro debería tener estado PRESTADO");
     }
 
+    /**
+     * Verifica que la búsqueda de un ISBN inexistente retorna Optional vacío.
+     */
     @Test
     void testBuscarPorIsbn_NoEncontrado() {
         Optional<Libro> libro = catalogo.buscarPorIsbn("000-0-00-000000-0");
         assertFalse(libro.isPresent(), "El libro con ISBN 000-0-00-000000-0 no debería existir");
     }
 
+    /**
+     * Verifica que obtenerDisponibles devuelve solo los libros con estado DISPONIBLE.
+     */
     @Test
     void testObtenerDisponibles() {
         List<Libro> disponibles = catalogo.obtenerDisponibles();
@@ -57,6 +75,9 @@ public class CatalogoTest {
         assertFalse(disponibles.contains(libro3));
     }
 
+    /**
+     * Verifica comportamiento de un catálogo recién creado (sin libros).
+     */
     @Test
     void testCatalogoVacio() {
         Catalogo vacio = new Catalogo();
