@@ -15,6 +15,11 @@ import java.util.NoSuchElementException;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+
+/**
+ * Pruebas unitarias para {@link GestionUsuarios}, usando Mockito
+ * para simular el servicio de préstamos.
+ */
 @ExtendWith(MockitoExtension.class)
 public class GestionUsuariosTest {
     @Mock
@@ -23,11 +28,18 @@ public class GestionUsuariosTest {
     @InjectMocks
     private GestionUsuarios gestionUsuarios;
 
+    /**
+     * Prepara un usuario base antes de cada test.
+     */
     @BeforeEach
     void setUp() {
         gestionUsuarios.registrarUsuario("usuario1");
     }
 
+    /**
+     * Verifica que al registrar un usuario nuevo,
+     * este aparece en el mapa de usuarios.
+     */
     @Test
     void testRegistrarUsuario() {
         assertFalse(gestionUsuarios.getUsuarios().containsKey("usuario2"));
@@ -35,6 +47,12 @@ public class GestionUsuariosTest {
         assertTrue(gestionUsuarios.getUsuarios().containsKey("usuario2"));
     }
 
+    /**
+     * Verifica el flujo exitoso de registrar un préstamo:
+     * - Mockito simula el préstamo devuelto.
+     * - El método invoca al sistema de préstamos.
+     * - El historial del usuario crece en uno con el objeto simulado.
+     */
     @Test
     void testRegistrarPrestamo_Exitoso() {
         Libro libro = new Libro("979-8888771389", "The Fragrant Flower Blooms with Dignity (1)", "Saka Mikami");
@@ -50,6 +68,10 @@ public class GestionUsuariosTest {
                 "El préstamo almacenado debería ser el mismo devuelto por el mock");
     }
 
+    /**
+     * Verifica que registrar un préstamo para un usuario inexistente
+     * lanza NoSuchElementException y no interactúa con el servicio.
+     */
     @Test
     void testRegistrarPrestamo_SinUsuario() {
         assertThrows(NoSuchElementException.class, () ->
